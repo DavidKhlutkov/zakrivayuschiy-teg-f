@@ -1,1 +1,11 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  --fonts-family: 'Press Start 2P';
+  --fonts-variable-family: 'Inter';
+  --themes-background: #fff;
+  --themes-main-color: #000;
+  --themes-button-color: #fff;
+  --name: #000;
+  --font-weight: 785;
+  --name1: #f00;
+}
