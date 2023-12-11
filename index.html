@@ -18,8 +18,8 @@
   </head>
   <body class="page">
     <header class="header wrapper">
-      <h1 class="title">&lt;/HTML&gt;</h1>
-      <p class="subtitle">закрывающий тег</p>
+      <a class="title">&lt;/HTML&gt;</a>
+      <h1 class="subtitle">закрывающий тег</h1>
       <nav class="theme-menu header__theme-menu">
         <!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
         <ul class="theme-menu__list">
@@ -306,22 +306,24 @@
         <span class="button__text">Сохранить на память</span>
       </button>
         <dialog id="dialog-id">
-          <form class="form" method="dialog">
+          <form class="form">
             <svg
             xmlns="http://www.w3.org/2000/svg"
             class="floppy-dialog"
-            viewBox="0 0 40 40"
-          >
-            <use href="./svg/floppy.svg#floppy_svg"></use>
-          </svg>
-        <h3 class="dialog-title">
-          Вставьте
-          дискету, чтобы продолжить
-        </h3>
-      </form>
-        <button type="button" disabled="disabled" class="button dialog-button" onclick="window['dialog-id'].close();">
-          <span class="button__text">ок</span>
-        </button>
+            viewBox="0 0 29 28"
+            >
+              <use href="./svg/floppy.svg#floppy_svg"></use>
+            </svg>
+            <h3 class="dialog-title">
+              Вставьте
+              дискету, чтобы продолжить
+            </h3>
+          </form>
+          <form method="dialog">
+            <button type="button" class="button dialog-button" onclick="window['dialog-id'].close();">
+              <span class="button__text">ок</span>
+            </button>
+          </form>
         </dialog>
     <script src="./scripts/like.js"></script>
   </body>
