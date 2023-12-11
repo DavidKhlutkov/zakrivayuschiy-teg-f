@@ -13,22 +13,6 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
 */
-@media (width <= 375px) {
-  .wrapper {
-    inline-size: 100%;
-  }
-
-  .floppy-button {
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .floppy {
-    width: 28px;
-    height: 28px;
-  }
-}
-
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
@@ -49,6 +33,7 @@
   font-weight: 400;
   border: 2px solid #000;
   background-color: var(--themes-background);
+  text-transform: uppercase;
 }
 
 .wrapper {
@@ -60,23 +45,22 @@
   margin-top: clamp(7.5rem, 5.224rem + 5.46vw, 8.5rem);
   font-family: var(--fonts-family, 'Press Start 2P', 'fantasy');
   font-size: clamp(3.063rem, 0.786rem + 5.46vw, 4.063rem);
-  text-transform: uppercase;
+  text-transform: inherit;
 }
 
 .subtitle {
   font-family: var(--fonts-family, 'Press Start 2P', 'fantasy');
   font-size: clamp(0.875rem, -0.406rem + 3.07vw, 1.438rem);
-  text-transform: uppercase;
+  text-transform: inherit;
   margin-block-end: 23px;
   margin-block-start: 20px;
 }
 
 .theme-menu {
   font-size: 14px;
-  text-transform: uppercase;
   margin-block-end: 22px;
   margin-inline-start: clamp(9.625rem, 6.082rem + 15.12vw, 19.688rem);
-  margin-inline-end: auto;
+  margin-inline-end: clamp(8.313rem, 4.703rem + 15.4vw, 18.563rem);
 }
 
 .theme-menu__list {
@@ -84,11 +68,12 @@
   flex-direction: column;
   align-content: baseline;
   gap: 7px;
-  font-size: inherit;
+  font-size: 14px;
   color: var(--main-text-color);
 }
 
 .theme-menu__button {
+  text-transform: inherit;
   font-family: var(--fonts-family, 'Press Start 2P', 'fantasy');
   position: relative;
   border: none;
@@ -148,6 +133,7 @@
   padding-block-start: 100px;
 }
 
+
 .card__container {
   display: flex;
   flex-direction: column;
@@ -164,7 +150,7 @@
   color: var(--themes-main-color, #000);
   font-size: 18px;
   font-weight: 700;
-  font-family: var(--fonts-variable-family, 'Inter', sans-serif);
+  font-family: var(--font-weight);
   padding-block: 5px;
   padding-inline: 10px;
 }
@@ -179,6 +165,8 @@
   position: relative;
   overflow: hidden;
   aspect-ratio: 1/1;
+  border-block-start: 2px solid var(--themes-main-color, #000);
+  border-block-end: 2px solid var(--themes-main-color, #000);
 }
 
 .card__container-item-img {
@@ -186,8 +174,6 @@
   object-fit: fill;
   object-position: center;
   inline-size: 100%;
-  border-block-start: 2px solid var(--themes-main-color, #000);
-  border-block-end: 2px solid var(--themes-main-color, #000);
 }
 
 .label-element {
@@ -211,10 +197,9 @@
 @supports (-webkit-text-stroke: 1px var(--themes-main-color)) or (text-stroke: 1px var(--themes-main-color)) {
   .card-element {
     -webkit-text-stroke: 1px var(--themes-main-color);
-    text-stroke-color: var(--themes-main-color);
+    text-stroke: 1px var(--themes-main-color);
     text-shadow: none;
   }
-}
 
 .card__text {
   margin: 25px;
@@ -271,11 +256,10 @@
   align-items: center;
   transform-origin: center;
   min-inline-size: 130px;
-  min-block-size: 38px;
 }
 
 .button:focus-visible {
-  box-shadow: 2px 2px 0px 0px #000;
+  box-shadow: 2px 2px 0px 0px var(--themes-main-color, #000);;
 }
 
 .button:focus,
@@ -285,12 +269,33 @@
 }
 
 .card__like-button:focus-visible, .card__icon-button:focus-visible {
-  border: 2px solid var(--themes-main-color, #000);
-  transition: border .3 ease;
-  -webkit-transition: border .3 ease;
-  -moz-transition: border .3 ease;
-  -ms-transition: border .3 ease;
-  -o-transition: border .3 ease;
+  border: 2px solid var(--themes-main-color, #000); 
+  transition: border 0.3s ease; 
+  -webkit-transition: border 0.3s ease; 
+  -moz-transition: border 0.3s ease; 
+  -ms-transition: border 0.3s ease; 
+  -o-transition: border 0.3s ease; 
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inline-size: 100%;
+  block-size: 100%;
+  translate: -100%;
+  transition: translate .5s ease-in-out;
+  background-color: var(--themes-main-color, #000);
+  z-index: 1;
+  top: 0;
+  left: 0;
+  -webkit-transition: translate .5s ease-in-out;
+  -moz-transition: translate .5s ease-in-out;
+  -ms-transition: translate .5s ease-in-out;
+  -o-transition: translate .5s ease-in-out;
+}
+
+.button:hover::before {
+  translate: 0%;
 }
 
 .floppy-button {
@@ -301,6 +306,7 @@
   margin-inline: auto;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
   gap: 8px;
 }
@@ -358,7 +364,8 @@
   font-weight: 400;
   line-height: 150%;
   text-transform: uppercase;
-  width: fit-content;
+  max-inline-size: clamp(12.375rem, 11.583rem + 3.38vw, 14.625rem);
+    
 }
 
  #dialog-id {
@@ -427,3 +434,18 @@
   -webkit-filter: saturate(4);
 }
 
+@media (width < 376px) {
+  .wrapper {
+    inline-size: 100%;
+  }
+
+  .floppy-button {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .floppy {
+    max-width: 28px;
+    max-height: 28px;
+  }
+}
